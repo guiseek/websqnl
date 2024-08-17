@@ -23,7 +23,7 @@ interface ResolveCallback<T> {
 }
 
 interface RejectCallback {
-  (reason?: any): void
+  (reason?: unknown): void
 }
 
 interface AsyncCallback<T> {
@@ -87,7 +87,9 @@ describe('di', () => {
     const fnFactory = jest.fn()
 
     class Age {
-      constructor(value: number) {}
+      constructor(value: number) {
+        // 
+      }
     }
 
     await load(

@@ -1,0 +1,3 @@
+interface StateEventMap {
+  ping: Date
+}
