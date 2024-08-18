@@ -20,7 +20,7 @@
         "outputPath": "dist/packages/event-flow",
         "main": "packages/event-flow/src/index.ts",
         "tsConfig": "packages/event-flow/tsconfig.lib.json",
-        "assets": []
+        "assets": ["packages/event-flow/src/types.d.ts"]
       }
     },
     "nx-release-publish": {
