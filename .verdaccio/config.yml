@@ -1,13 +1,26 @@
 # path to a directory with all packages
 storage: ../tmp/local-registry/storage
 
+auth:
+  htpasswd:
+    file: ./htpasswd
+
 # a list of other known repositories we can talk to
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
     maxage: 60m
+    max_fails: 20
+    fail_timeout: 2m
 
 packages:
+  '@*/*':
+    # scoped packages
+    access: $all
+    publish: $all
+    unpublish: $all
+    proxy: npmjs
+
   '**':
     # give all users (including non-authenticated users) full access
     # because it is a local registry
@@ -19,7 +32,7 @@ packages:
     proxy: npmjs
 
 # log settings
-logs:
+log:
   type: stdout
   format: pretty
   level: warn

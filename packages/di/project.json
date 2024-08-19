@@ -20,7 +20,7 @@
         "outputPath": "dist/packages/di",
         "main": "packages/di/src/index.ts",
         "tsConfig": "packages/di/tsconfig.lib.json",
-        "assets": []
+        "assets": ["packages/di/readme.md"]
       }
     },
     "nx-release-publish": {

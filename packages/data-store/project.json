@@ -1,7 +1,7 @@
 {
-  "name": "event-flow",
+  "name": "data-store",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/event-flow/src",
+  "sourceRoot": "packages/data-store/src",
   "projectType": "library",
   "release": {
     "version": {
@@ -17,13 +17,10 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/event-flow",
-        "main": "packages/event-flow/src/index.ts",
-        "tsConfig": "packages/event-flow/tsconfig.lib.json",
-        "assets": [
-          "packages/event-flow/src/types.d.ts",
-          "packages/event-flow/readme.md"
-        ]
+        "outputPath": "dist/packages/data-store",
+        "main": "packages/data-store/src/index.ts",
+        "tsConfig": "packages/data-store/tsconfig.lib.json",
+        "assets": ["packages/data-store/readme.md"]
       }
     },
     "nx-release-publish": {
