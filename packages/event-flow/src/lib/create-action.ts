@@ -2,9 +2,7 @@ import {StateEvent} from './state-event'
 import {getCallbacks} from './events'
 import {Event} from './types'
 
-export const createEvent = <T extends keyof StateEventMap>(
-  type: T
-): Event<T> => {
+export const create = <T extends keyof StateEventMap>(type: T): Event<T> => {
   return (value: StateEventMap[T]): StateEvent<T> => {
     return new (class extends StateEvent<T> {
       constructor() {

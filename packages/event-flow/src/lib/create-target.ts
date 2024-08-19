@@ -1,6 +1,9 @@
-import {addCallback} from './events'
 import {Callback, Target} from './types'
+import {addCallback} from './events'
 
+/**
+ * @deprecated instead, use `createListener`
+ */
 export const createTarget = <T extends keyof StateEventMap>(
   type: T
 ): Target<T> => {
