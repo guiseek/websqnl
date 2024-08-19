@@ -2,7 +2,9 @@
   "name": "websqnl",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "commit": "pnpx czg"
+  },
   "private": true,
   "dependencies": {
     "tslib": "^2.3.0"

@@ -32,12 +32,12 @@ interface StateEventMap {
 }
 ```
 
-### The targets
+### The listeners
 
 ```ts
-import {createTarget} from '@websqnl/event-flow'
+import {createListener} from '@websqnl/event-flow'
 
-export const onPing = createTarget('ping')
+export const onPing = createListener('ping')
 ```
 
 then
@@ -58,7 +58,7 @@ import {createEvent} from '@websqnl/event-flow'
 export const ping = createEvent('ping')
 ```
 
-then use the `dispatch` `function` `+` the previously created event
+then use the `dispatch` function + the previously created event
 
 ```ts
 import {dispatch} from '@websqnl/event-flow'
@@ -69,4 +69,16 @@ const button = document.createElement('button')
 button.textContent = 'Ping'
 
 button.onclick = () => dispatch(ping(new Date()))
+```
+
+or, `dispatch` method of event state
+
+```ts
+import {ping} from './events'
+
+const button = document.createElement('button')
+
+button.textContent = 'Ping'
+
+button.onclick = () => ping(new Date()).dispatch()
 ```

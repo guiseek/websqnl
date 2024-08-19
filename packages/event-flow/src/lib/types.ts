@@ -11,3 +11,9 @@ export interface Event<T extends keyof StateEventMap> {
 export interface Target<T extends keyof StateEventMap> {
   (callback: Callback<StateEventMap[T]>): VoidFunction
 }
+
+type RemoveListener = VoidFunction
+
+export interface Listener<T extends keyof StateEventMap> {
+  (callback: Callback<StateEventMap[T]>): RemoveListener
+}
