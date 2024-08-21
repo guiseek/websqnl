@@ -17,6 +17,7 @@
     "paths": {
       "@websqnl/data-store": ["packages/data-store/src/index.ts"],
       "@websqnl/di": ["packages/di/src/index.ts"],
+      "@websqnl/elements": ["packages/elements/src/index.ts"],
       "@websqnl/event-flow": ["packages/event-flow/src/index.ts"]
     }
   },
