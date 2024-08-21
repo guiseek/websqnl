@@ -1,4 +1,4 @@
-import {createTarget} from './create-target'
+import {createListener} from './create-listener'
 import {createEvent} from './create-event'
 import {Event, Target} from './types'
 import {dispatch} from './dispatch'
@@ -9,7 +9,7 @@ describe('eventFlow', () => {
 
   beforeEach(() => {
     ping = createEvent('ping')
-    onPing = createTarget('ping')
+    onPing = createListener('ping')
   })
 
   it('should work', () => {
