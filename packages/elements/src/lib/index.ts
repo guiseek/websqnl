@@ -17,6 +17,7 @@ export * from './heading';
 export * from './horizontal-rule';
 export * from './input';
 export * from './keyboard';
+export * from './label';
 export * from './list';
 export * from './main';
 export * from './mark';
