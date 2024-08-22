@@ -1,10 +1,20 @@
 {
   "name": "@websqnl/event-flow",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guiseek/websqnl.git",
+    "directory": "packages/event-flow"
+  },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "type": "commonjs",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "type": "module",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts"
 }
