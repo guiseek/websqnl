@@ -26,6 +26,7 @@ export * from './nav';
 export * from './object';
 export * from './paragraph';
 export * from './preformatted';
+export * from './progress';
 export * from './quote';
 export * from './section';
 export * from './select';
