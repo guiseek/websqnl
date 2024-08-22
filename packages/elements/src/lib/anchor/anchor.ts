@@ -1,4 +1,4 @@
-import {builtIn} from '../../shared'
+import {assign, builtIn} from '../../shared'
 
 type LinkTarget = '_blank' | '_parent' | '_self' | '_top'
 
@@ -39,7 +39,8 @@ export class Anchor extends HTMLAnchorElement {
 
   override rel!: LinkType
 
-  constructor(public override text: string, public override href: string) {
+  constructor(attrs: Partial<Anchor> = {}) {
     super()
+    assign(this, attrs)
   }
 }

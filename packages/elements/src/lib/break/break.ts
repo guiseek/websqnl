@@ -1,4 +1,9 @@
-import {builtIn} from '../../shared'
+import {assign, builtIn} from '../../shared'
 
 @builtIn('br', 'web-break')
-export class Break extends HTMLBRElement {}
+export class Break extends HTMLBRElement {
+  constructor(attrs: Partial<Break> = {}) {
+    super()
+    assign(this, attrs)
+  }
+}

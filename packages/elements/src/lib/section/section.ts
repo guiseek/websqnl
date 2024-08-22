@@ -1,4 +1,9 @@
-import {builtIn} from '../../shared'
+import {assign, builtIn} from '../../shared'
 
 @builtIn('section', 'web-section')
-export class Section extends HTMLElement {}
+export class Section extends HTMLElement {
+  constructor(attrs: Partial<Section> = {}) {
+    super()
+    assign(this, attrs)
+  }
+}
