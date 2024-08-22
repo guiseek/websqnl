@@ -3,6 +3,7 @@ export * from './anchor';
 export * from './article';
 export * from './aside';
 export * from './break';
+export * from './button';
 export * from './cite';
 export * from './code';
 export * from './description';
