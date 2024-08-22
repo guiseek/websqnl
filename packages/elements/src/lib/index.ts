@@ -15,6 +15,7 @@ export * from './form';
 export * from './header';
 export * from './heading';
 export * from './horizontal-rule';
+export * from './input';
 export * from './keyboard';
 export * from './list';
 export * from './main';
