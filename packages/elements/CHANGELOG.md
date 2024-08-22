@@ -1,3 +1,15 @@
+## 0.3.0 (2024-08-22)
+
+
+### 🚀 Features
+
+- **elements:** create progress element ([f5db025](https://github.com/guiseek/websqnl/commit/f5db025))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.2.0 (2024-08-22)
 
 
