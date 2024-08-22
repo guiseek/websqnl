@@ -1,3 +1,15 @@
+## 0.4.0 (2024-08-22)
+
+
+### 🚀 Features
+
+- **elements:** added button element ([61ab3e9](https://github.com/guiseek/websqnl/commit/61ab3e9))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.3.0 (2024-08-22)
 
 
