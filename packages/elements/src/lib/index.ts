@@ -27,6 +27,7 @@ export * from './paragraph';
 export * from './preformatted';
 export * from './quote';
 export * from './section';
+export * from './select';
 export * from './small';
 export * from './span';
 export * from './strong';
