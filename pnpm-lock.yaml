@@ -45,6 +45,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.16.0
         version: 7.18.0(eslint@8.57.0)(typescript@5.5.4)
+      cz-git:
+        specifier: ^1.9.4
+        version: 1.9.4
       eslint:
         specifier: ~8.57.0
         version: 8.57.0
@@ -3626,6 +3629,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       cssom: 0.3.8
+    dev: true
+
+  /cz-git@1.9.4:
+    resolution: {integrity: sha512-VntWcIEFfW8+7RgwYaRn1r10NhUkl8/8ZdJQRupEdqE7QXBCSjNP8hKSk9zhSLzYAsdXfGEAwiAYJM1T2Qsh8w==}
+    engines: {node: '>=v12.20.0'}
     dev: true
 
   /dashdash@1.14.1:
