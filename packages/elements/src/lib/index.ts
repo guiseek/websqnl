@@ -22,6 +22,7 @@ export * from './main';
 export * from './mark';
 export * from './menu';
 export * from './nav';
+export * from './object';
 export * from './paragraph';
 export * from './preformatted';
 export * from './quote';
