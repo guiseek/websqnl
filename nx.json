@@ -21,7 +21,8 @@
       "preVersionCommand": "pnpm dlx nx run-many -t build",
       "conventionalCommits": true,
       "generatorOptions": {
-        "fallbackCurrentVersionResolver": "registry"
+        "currentVersionResolver": "git-tag",
+        "specifierSource": "conventional-commits"
       }
     },
     "changelog": {
