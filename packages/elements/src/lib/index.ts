@@ -11,6 +11,7 @@ export * from './emphasis';
 export * from './field-set';
 export * from './figure';
 export * from './footer';
+export * from './form';
 export * from './header';
 export * from './heading';
 export * from './horizontal-rule';
