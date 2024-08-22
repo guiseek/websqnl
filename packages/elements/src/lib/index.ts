@@ -6,6 +6,7 @@ export * from './break';
 export * from './button';
 export * from './cite';
 export * from './code';
+export * from './data-list';
 export * from './description';
 export * from './div';
 export * from './emphasis';
