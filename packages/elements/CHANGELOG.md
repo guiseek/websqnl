@@ -1,3 +1,15 @@
+## 0.5.0 (2024-08-22)
+
+
+### 🚀 Features
+
+- **elements:** added data-list element ([dd94c03](https://github.com/guiseek/websqnl/commit/dd94c03))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.4.0 (2024-08-22)
 
 
