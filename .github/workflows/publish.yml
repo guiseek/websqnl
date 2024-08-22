@@ -29,6 +29,8 @@ jobs:
 
       # Set up pnpm and node so that we can verify our setup and that the NPM_TOKEN secret will work later
       - uses: pnpm/action-setup@v4
+        with:
+          version: 8
 
       - name: Install Node
         uses: actions/setup-node@v4
