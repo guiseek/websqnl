@@ -99,6 +99,9 @@ importers:
 
   packages/elements:
     dependencies:
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
       tslib:
         specifier: ^2.3.0
         version: 2.6.3

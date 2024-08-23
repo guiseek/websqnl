@@ -1,3 +1,20 @@
+## 0.6.0 (2024-08-23)
+
+
+### 🚀 Features
+
+- **elements:** added children decorator ([0f38caa](https://github.com/guiseek/websqnl/commit/0f38caa))
+
+
+### 🩹 Fixes
+
+- **elements:** add peer deps ([e922317](https://github.com/guiseek/websqnl/commit/e922317))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.5.0 (2024-08-22)
 
 

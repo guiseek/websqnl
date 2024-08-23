@@ -1,3 +1,15 @@
+## 0.2.0 (2024-08-23)
+
+
+### 🚀 Features
+
+- **event-flow:** export types ([ab0dcfa](https://github.com/guiseek/websqnl/commit/ab0dcfa))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.1.1 (2024-08-22)
 
 
