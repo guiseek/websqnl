@@ -19,7 +19,10 @@
   "release": {
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build",
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "generatorOptions": {
+        "fallbackCurrentVersionResolver": "registry"
+      }
     },
     "changelog": {
       "projectChangelogs": {
