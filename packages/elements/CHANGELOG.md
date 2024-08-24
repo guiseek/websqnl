@@ -1,3 +1,15 @@
+## 0.7.0 (2024-08-24)
+
+
+### 🚀 Features
+
+- **elements:** create canvas element ([4ec99f3](https://github.com/guiseek/websqnl/commit/4ec99f3))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.6.0 (2024-08-23)
 
 
