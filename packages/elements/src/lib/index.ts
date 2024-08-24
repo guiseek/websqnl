@@ -4,6 +4,7 @@ export * from './article';
 export * from './aside';
 export * from './break';
 export * from './button';
+export * from './canvas';
 export * from './cite';
 export * from './code';
 export * from './data-list';
