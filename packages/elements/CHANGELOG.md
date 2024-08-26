@@ -1,3 +1,15 @@
+## 0.9.0 (2024-08-26)
+
+
+### 🚀 Features
+
+- **elements:** create table header cell element ([d9c961e](https://github.com/guiseek/websqnl/commit/d9c961e))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.8.0 (2024-08-26)
 
 
