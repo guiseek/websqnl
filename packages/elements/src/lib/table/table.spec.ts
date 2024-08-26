@@ -1,8 +1,9 @@
-import {Table} from './table'
+import {TableHeaderCell} from './table-header-cell'
 import {TableHead} from './table-head'
 import {TableBody} from './table-body'
-import {TableRow} from './table-row'
 import {TableCell} from './table-cell'
+import {TableRow} from './table-row'
+import {Table} from './table'
 
 describe('table', () => {
   it('should create instance', () => {
@@ -34,4 +35,8 @@ describe('table', () => {
 
     expect(element).toBeInstanceOf(TableCell)
   })
+
+  const element = new TableHeaderCell()
+
+  expect(element).toBeInstanceOf(TableHeaderCell)
 })
