@@ -36,4 +36,5 @@ export * from './select';
 export * from './small';
 export * from './span';
 export * from './strong';
+export * from './table';
 export * from './time';
