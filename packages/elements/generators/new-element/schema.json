@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "NewElement",
+  "title": "Creates new element in elements package",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "is": {
+      "type": "string",
+      "description": "",
+      "x-prompt": "Which tag would you like to extend?"
+    }
+  },
+  "required": ["name"]
+}

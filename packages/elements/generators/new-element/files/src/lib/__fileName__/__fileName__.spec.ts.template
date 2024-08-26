@@ -1,0 +1,9 @@
+import {<%= className %>} from './<%= fileName %>'
+
+describe('<%= fileName %>', () => {
+  it('should create instance', () => {
+    const element = new <%= className %>()
+
+    expect(element).toBeInstanceOf(<%= className %>)
+  })
+})

@@ -21,9 +21,7 @@
         "main": "packages/elements/src/index.ts",
         "tsConfig": "packages/elements/tsconfig.lib.json",
         "assets": ["packages/elements/*.md"],
-        "additionalEntryPoints": [
-          "packages/elements/src/shared.ts"
-        ],
+        "additionalEntryPoints": ["packages/elements/src/shared.ts"],
         "generateExportsField": true
       }
     },

@@ -1,0 +1,9 @@
+import {assign, builtIn} from "../../shared"
+
+@builtIn('<%= is %>', 'web-<%= fileName %>')
+export class <%= className %> extends <%= htmlClassName %> {
+  constructor(attrs: Partial<<%= className %>> = {}) {
+    super()
+    assign(this, attrs)
+  }
+}
