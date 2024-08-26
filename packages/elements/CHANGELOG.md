@@ -1,3 +1,17 @@
+## 0.8.0 (2024-08-26)
+
+
+### 🚀 Features
+
+- **elements:** create option-group element ([1f8f7ce](https://github.com/guiseek/websqnl/commit/1f8f7ce))
+
+- **elements:** create table, table-head, table-body, row and cell elements ([962ca92](https://github.com/guiseek/websqnl/commit/962ca92))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.7.0 (2024-08-24)
 
 
