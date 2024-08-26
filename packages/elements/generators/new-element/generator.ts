@@ -1,18 +1,39 @@
 import {NewElementGeneratorSchema, NormalizedOptions} from './schema'
-import {
-  Tree,
-  names,
-  formatFiles,
-  generateFiles,
-} from '@nx/devkit'
+import {Tree, names, formatFiles, generateFiles} from '@nx/devkit'
 import {elementMap} from './lib/element-map'
 import {join} from 'path'
+import {readdirSync} from 'fs'
 
 function normalizeOptions(
   options: NewElementGeneratorSchema
 ): NormalizedOptions {
   const htmlClassName = elementMap[options.is]
-  return {...options, htmlClassName, ...names(options.name)}
+
+  const {fileName, className} = names(options.name)
+
+  let dirName = fileName
+
+  if (options.directory) {
+    const {fileName} = names(options.directory)
+    dirName = fileName
+  }
+
+  const path = join('packages', 'elements', 'src', 'lib', dirName)
+  const files = readdirSync(path)
+  const predicate = (file: string) => {
+    return file.startsWith('index.ts') || file.endsWith('spec.ts')
+  }
+  const exports = removeFromList(files, predicate).map((file) =>
+    file.replace(/.ts/, '')
+  )
+
+  exports.push(fileName)
+
+  return {...options, htmlClassName, dirName, fileName, className, exports}
+}
+
+function removeFromList<T>(list: T[], predicate: (value: T) => boolean) {
+  return list.filter((item) => !predicate(item))
 }
 
 export async function newElementGenerator(

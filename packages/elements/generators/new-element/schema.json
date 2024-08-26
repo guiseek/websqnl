@@ -13,11 +13,15 @@
       },
       "x-prompt": "What name would you like to use?"
     },
+    "directory": {
+      "type": "string",
+      "description": ""
+    },
     "is": {
       "type": "string",
       "description": "",
       "x-prompt": "Which tag would you like to extend?"
     }
   },
-  "required": ["name"]
+  "required": ["name", "is"]
 }
