@@ -1,3 +1,15 @@
+## 0.1.0 (2024-08-27)
+
+
+### 🚀 Features
+
+- **utils:** improve parse fn ([a416eb9](https://github.com/guiseek/websqnl/commit/a416eb9))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.0.2 (2024-08-22)
 
 
