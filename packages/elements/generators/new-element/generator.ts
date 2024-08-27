@@ -1,8 +1,8 @@
 import {NewElementGeneratorSchema, NormalizedOptions} from './schema'
 import {Tree, names, formatFiles, generateFiles} from '@nx/devkit'
 import {elementMap} from './lib/element-map'
+import {readdirSync, existsSync} from 'fs'
 import {join} from 'path'
-import {readdirSync} from 'fs'
 
 function normalizeOptions(
   options: NewElementGeneratorSchema
@@ -18,14 +18,19 @@ function normalizeOptions(
     dirName = fileName
   }
 
+  let exports: string[] = []
+
   const path = join('packages', 'elements', 'src', 'lib', dirName)
-  const files = readdirSync(path)
-  const predicate = (file: string) => {
-    return file.startsWith('index.ts') || file.endsWith('spec.ts')
+
+  if (existsSync(path)) {
+    const files = readdirSync(path)
+    const predicate = (file: string) => {
+      return file.startsWith('index.ts') || file.endsWith('spec.ts')
+    }
+    exports = removeFromList(files, predicate).map((file) =>
+      file.replace(/.ts/, '')
+    )
   }
-  const exports = removeFromList(files, predicate).map((file) =>
-    file.replace(/.ts/, '')
-  )
 
   exports.push(fileName)
 
