@@ -28,6 +28,7 @@ export * from './main';
 export * from './mark';
 export * from './media';
 export * from './menu';
+export * from './meter';
 export * from './nav';
 export * from './object';
 export * from './paragraph';
