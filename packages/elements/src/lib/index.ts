@@ -11,6 +11,7 @@ export * from './data-list';
 export * from './description';
 export * from './details';
 export * from './div';
+export * from './embed';
 export * from './emphasis';
 export * from './field-set';
 export * from './figure';
