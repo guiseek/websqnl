@@ -41,13 +41,7 @@ pnpm commit
 git push origin your-task
 ```
 
-
-```
-+-------------------+
-| OPEN PULL REQUEST |
-+-------------------+
-```
-![click](./design/pointer.svg)
+![click](./design/pr-button.svg)
 
 ## Release
 
