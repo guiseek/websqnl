@@ -30,6 +30,7 @@ export * from './menu';
 export * from './nav';
 export * from './object';
 export * from './paragraph';
+export * from './picture';
 export * from './preformatted';
 export * from './progress';
 export * from './quote';
