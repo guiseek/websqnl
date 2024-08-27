@@ -42,4 +42,5 @@ export * from './span';
 export * from './strong';
 export * from './table';
 export * from './template';
+export * from './textarea';
 export * from './time';
