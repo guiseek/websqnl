@@ -36,6 +36,7 @@ export * from './progress';
 export * from './quote';
 export * from './section';
 export * from './select';
+export * from './slot';
 export * from './small';
 export * from './span';
 export * from './strong';
