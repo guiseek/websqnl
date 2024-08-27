@@ -1,3 +1,17 @@
+## 0.11.0 (2024-08-27)
+
+
+### 🚀 Features
+
+- **elements:** create embed element ([49af7a3](https://github.com/guiseek/websqnl/commit/49af7a3))
+
+- **elements:** create meter element ([8557a03](https://github.com/guiseek/websqnl/commit/8557a03))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.10.0 (2024-08-27)
 
 
