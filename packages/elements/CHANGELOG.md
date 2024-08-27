@@ -1,3 +1,25 @@
+## 0.10.0 (2024-08-27)
+
+
+### 🚀 Features
+
+- **elements:** create details element ([579a20a](https://github.com/guiseek/websqnl/commit/579a20a))
+
+- **elements:** create video and track elements ([ba50c7e](https://github.com/guiseek/websqnl/commit/ba50c7e))
+
+- **elements:** create picture and source elements ([46c3c2b](https://github.com/guiseek/websqnl/commit/46c3c2b))
+
+- **elements:** create slot element ([f490c85](https://github.com/guiseek/websqnl/commit/f490c85))
+
+- **elements:** create template element ([51faf74](https://github.com/guiseek/websqnl/commit/51faf74))
+
+- **elements:** create textarea element ([6f6b868](https://github.com/guiseek/websqnl/commit/6f6b868))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.9.0 (2024-08-26)
 
 
