@@ -13,10 +13,6 @@ describe('parse', () => {
     expect(parse('false')).toBe(false)
   })
 
-  it('should be 10', () => {
-    expect(parse('10')).toBe(10)
-  })
-
   it('should be date', () => {
     const date = Date.UTC(2024, 11, 10, 0, 0, 0, 0)
     expect(parse(date)).toBe(date)

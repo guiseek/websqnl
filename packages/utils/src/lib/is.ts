@@ -1,31 +1,33 @@
-import {Fn, Type} from './types'
+import {getType} from './get-type'
+import {FakeBoolean, Fn, NumberString, Type} from './types'
 
 export const is = {
-  string(value: unknown): value is string {
-    return typeof value === 'string'
-  },
   number(value: unknown): value is number {
-    return typeof value === 'number' && !isNaN(value)
+    return getType(value) === 'number'
+  },
+  numberString(value: unknown): value is NumberString {
+    return this.string(value) && !isNaN(+String(value))
+  },
+  string(value: unknown): value is string {
+    return getType(value) === 'string'
+  },
+  boolean(value: unknown): value is boolean {
+    return getType(value) === 'boolean'
+  },
+  fakeBoolean(value: unknown): value is FakeBoolean {
+    return this.string(value) && (value === 'true' || value === 'false')
   },
   date(value: unknown): value is Date {
-    return (
-      (value instanceof Date && value.toString() !== 'Invalid Date') ||
-      !isNaN(new Date(String(value)).getTime())
-    )
-  },
-  boolean(value: unknown): value is boolean | 'true' | 'false' {
-    return (
-      value === true || value === false || value === 'true' || value === 'false'
-    )
+    return getType(value) === 'date'
   },
   object<T>(value: unknown): value is T {
-    return typeof value === 'object' && value !== null
+    return getType(value) === 'object'
   },
   array<T>(value: unknown): value is T[] {
-    return Array.isArray(value)
+    return getType(value) === 'array'
   },
   function<T>(value: unknown): value is T {
-    return typeof value === 'function'
+    return getType(value) === 'function'
   },
   class<T>(value: unknown): value is Type<T> {
     return (

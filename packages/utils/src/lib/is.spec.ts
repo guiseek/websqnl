@@ -27,15 +27,15 @@ describe('is', () => {
   })
   
   it('should be falsy', () => {
-    expect(is.boolean('truee')).toBeFalsy()
+    expect(is.fakeBoolean('truee')).toBeFalsy()
   })
   
   it('should be falsy', () => {
-    expect(is.boolean('flse')).toBeFalsy()
+    expect(is.fakeBoolean('flse')).toBeFalsy()
   })
   
   it('should be truthy', () => {
-    expect(is.boolean('false')).toBeTruthy()
+    expect(is.fakeBoolean('false')).toBeTruthy()
   })
   
   it('should be truthy', () => {
