@@ -25,6 +25,7 @@ export * from './label';
 export * from './list';
 export * from './main';
 export * from './mark';
+export * from './media';
 export * from './menu';
 export * from './nav';
 export * from './object';
