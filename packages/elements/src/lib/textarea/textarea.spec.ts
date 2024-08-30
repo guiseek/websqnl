@@ -1,9 +1,9 @@
-import {Textarea} from './textarea'
+import {TextArea} from './textarea'
 
 describe('textarea', () => {
   it('should create instance', () => {
-    const element = new Textarea()
+    const element = new TextArea()
 
-    expect(element).toBeInstanceOf(Textarea)
+    expect(element).toBeInstanceOf(TextArea)
   })
 })

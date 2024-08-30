@@ -1,8 +1,8 @@
 import {assign, builtIn} from '../../shared'
 
-@builtIn('textarea', 'web-textarea')
-export class Textarea extends HTMLTextAreaElement {
-  constructor(attrs: Partial<Textarea> = {}) {
+@builtIn('textarea', 'web-text-area')
+export class TextArea extends HTMLTextAreaElement {
+  constructor(attrs: Partial<TextArea> = {}) {
     super()
     assign(this, attrs)
   }
