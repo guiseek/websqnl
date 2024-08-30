@@ -1,3 +1,20 @@
+## 0.12.0 (2024-08-30)
+
+
+### 🚀 Features
+
+- **elements:** create legend element ([bb03200](https://github.com/guiseek/websqnl/commit/bb03200))
+
+
+### 🩹 Fixes
+
+- **elements:** text-area name ([cc610b5](https://github.com/guiseek/websqnl/commit/cc610b5))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.11.0 (2024-08-27)
 
 
