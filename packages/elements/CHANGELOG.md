@@ -1,3 +1,15 @@
+## 0.13.0 (2024-08-31)
+
+
+### 🚀 Features
+
+- **elements:** create output element ([f5f8c82](https://github.com/guiseek/websqnl/commit/f5f8c82))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.12.0 (2024-08-30)
 
 
