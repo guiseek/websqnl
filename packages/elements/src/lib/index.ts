@@ -31,6 +31,7 @@ export * from './menu';
 export * from './meter';
 export * from './nav';
 export * from './object';
+export * from './output';
 export * from './paragraph';
 export * from './picture';
 export * from './preformatted';
