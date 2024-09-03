@@ -1,2 +1,2 @@
 export * from './built-in';
-export * from './children';
+export * from './select-children';

@@ -1,1 +1,1 @@
-export {builtIn, assign} from './shared/index'
+export {builtIn, children, assign} from './shared/index'

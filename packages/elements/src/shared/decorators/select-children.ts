@@ -5,7 +5,7 @@ const CHILDREN_METADATA_KEY = 'children'
 
 const childrenMetadataKey = Symbol(CHILDREN_METADATA_KEY)
 
-export function children<T extends HTMLElement>(target: Type<T>) {
+export function selectChildren<T extends HTMLElement>(target: Type<T>) {
   return Reflect.metadata(childrenMetadataKey, target)
 }
 
