@@ -1,3 +1,15 @@
+## 0.14.0 (2024-09-03)
+
+
+### 🚀 Features
+
+- **elements:** create var element ([83dfad5](https://github.com/guiseek/websqnl/commit/83dfad5))
+
+
+### ❤️  Thank You
+
+- Gui Seek
+
 ## 0.13.0 (2024-08-31)
 
 
