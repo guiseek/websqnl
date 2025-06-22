@@ -1,53 +1,144 @@
-import type {Provider, Ref} from './types'
-import {is} from './utils'
+import type {Params, Provider, Ref, Use} from './types'
+import {container, registry} from './internal'
+import {is} from './utils/is'
 
-const container = new Map()
-const relations = new Map()
+const use = <T>(ref: Ref<T>) => {
+  const provider = registry.get(ref)
 
-function use<T>(ref: Ref<T>): T {
+  if (provider && provider.scope && provider.scope === 'transient') {
+    return sync(ref)
+  }
+
   const value = container.get(ref)
 
-  if (!value) throw `${ref.name} not found`
+  if (!value) {
+    throw `${ref.name} not registered`
+  }
 
-  return value
+  return value as T
 }
 
-const provide = async <T>({ref, use}: Provider<T>) => {
-  const type = (use ?? ref) as T
+const useWith = <T>(ref: Ref<T>, ...params: Use<unknown>[]) => {
+  const provider = registry.get(ref)
 
-  if (is.fn<T>(type)) {
-    const deps = relations.get(ref) ?? []
+  const concrete = provider.use ?? provider.ref
 
-    if (is.type<T>(type)) {
-      return new type(...deps)
+  const deps = params as Params<Use<T>>
+
+  if (is.constructor<T>(concrete)) {
+    return new concrete(...deps)
+  }
+
+  if (is.factory<T>(concrete)) {
+    return concrete(...deps)
+  }
+
+  return concrete as T
+}
+
+const sync = <T>(ref: Ref<T>) => {
+  const provider = registry.get(ref)
+
+  const concrete = provider.use ?? provider.ref
+
+  if (is.asyncFactory(concrete)) {
+    throw `Provider with 'transient' scope cannot use async factories`
+  }
+
+  const deps = (provider.dep ?? []).map(use) as Params<Use<T>>
+
+  if (is.constructor<T>(concrete)) {
+    return new concrete(...deps)
+  }
+
+  if (is.factory<T>(concrete)) {
+    return concrete(...deps)
+  }
+
+  return concrete as T
+}
+
+const async = async <T>(ref: Ref<T>) => {
+  const provider = registry.get(ref)
+
+  const concrete = provider.use ?? provider.ref
+
+  const deps = (provider.dep ?? []).map(use) as Params<Use<T>>
+
+  return construct(concrete, deps)
+}
+
+const construct = async <T>(
+  concrete: Use<T> | Ref<T>,
+  deps: Params<Use<T>>
+) => {
+  if (is.constructor<T>(concrete)) {
+    return new concrete(...deps)
+  }
+
+  if (is.asyncFactory<T>(concrete)) {
+    return await concrete(...deps)
+  }
+
+  if (is.factory<T>(concrete)) {
+    return concrete(...deps)
+  }
+
+  return concrete as T
+}
+
+const checkUnregDeps = () => {
+  const unDeps: Ref<unknown>[] = []
+
+  for (const {dep = []} of registry.values()) {
+    unDeps.push(...dep.filter((ref) => !registry.has(ref)))
+  }
+
+  unDeps.forEach((ref) => provide({ref}))
+}
+
+const load = async () => {
+  checkUnregDeps()
+
+  for (const [ref, provider] of registry.entries()) {
+    const scope = provider.scope ?? 'singleton'
+
+    if (scope === 'transient') {
+      continue
     }
 
-    if (is.asyncFn<T>(type)) {
-      return await type(...deps)
+    const deps = provider.dep ?? []
+
+    if (container.has(ref)) {
+      continue
     }
 
-    return type(...deps)
-  }
+    for (const dep of deps) {
+      if (container.has(dep)) {
+        continue
+      }
 
-  return type
-}
+      if (!registry.has(dep)) {
+        throw `${dep.name} not registered`
+      }
 
-const add = async <T>(provider: Provider<T>) => {
-  if (provider.dep && provider.dep.length > 0) {
-    relations.set(provider.ref, provider.dep.map(use))
-  }
+      container.set(dep, await async(dep))
+    }
 
-  container.set(provider.ref, await provide(provider))
-
-  return use(provider.ref)
-}
-
-async function* set<T>(
-  ...providers: Provider<T | any>[]
-): AsyncGenerator<T, void, unknown> {
-  for (const p of providers) {
-    yield await add(p)
+    container.set(ref, await async(ref))
   }
 }
 
-export {use, add, set}
+const provide = <T>(provider: Provider<T>) => {
+  registry.set(provider.ref, provider)
+}
+
+const provides = <T>(...providers: Provider<T | unknown>[]) => {
+  providers.forEach(provide)
+}
+
+const boot = (fn: VoidFunction) => {
+  return load().then(fn)
+}
+
+export {use, useWith, load, boot, provide, provides}

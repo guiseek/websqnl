@@ -1,3 +1,6 @@
+/**
+ * @deprecated instead, use the [Alias](./alias.ts) class
+ */
 export class Token<T = any> {
   constructor(public name: string, public value?: T) {}
 }

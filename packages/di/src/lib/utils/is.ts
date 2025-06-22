@@ -1,13 +1,18 @@
-import type {Fn, Type} from '../types'
+import type {AsyncFactory, Constructor, Factory} from '../types'
 
-export const is = {
-  fn<T>(value: unknown): value is Fn<T> {
+const is = {
+  object<T, K extends keyof T>(value: unknown): value is Record<K, T[K]> {
+    return typeof value === 'object'
+  },
+  factory<T>(value: unknown): value is Factory<T> {
     return typeof value === 'function'
   },
-  asyncFn<T>(value: unknown): value is Fn<Promise<T>> {
-    return this.fn(value) && value.constructor.name === 'AsyncFunction'
+  asyncFactory<T>(value: unknown): value is AsyncFactory<T> {
+    return this.factory(value) && value.constructor.name === 'AsyncFunction'
   },
-  type<T>(value: unknown): value is Type<T> {
-    return this.fn(value) && typeof value.prototype === 'object'
+  constructor<T>(value: unknown): value is Constructor<T> {
+    return this.factory(value) && typeof value.prototype === 'object'
   },
 }
+
+export {is}
