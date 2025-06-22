@@ -20,9 +20,8 @@
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build",
       "conventionalCommits": true,
-      "generatorOptions": {
-        "fallbackCurrentVersionResolver": "registry"
-      }
+      "fallbackCurrentVersionResolver": "registry",
+      "preserveLocalDependencyProtocols": false
     },
     "changelog": {
       "projectChangelogs": {
@@ -44,5 +43,6 @@
         "targetName": "test"
       }
     }
-  ]
+  ],
+  "nxCloudId": "68578255b45da5624a68b8e8"
 }
