@@ -1,6 +1,6 @@
-import {createToken, Token} from './token'
-import {add, set, use} from './di'
-import {load} from './load'
+import {provide, provides, load, use} from './di'
+import {createToken} from './token'
+import {Alias} from './alias'
 
 abstract class Abstract {
   abstract hello(): string
@@ -42,30 +42,38 @@ const useFactory = async((resolve) => {
 describe('di', () => {
   test('token with value', async () => {
     const date = new Date()
-    const token = new Token('date.token')
+    const token = new Alias('date.token')
 
-    await add({ref: token, use: date})
+    provide({ref: token, use: date})
+
+    await load()
 
     expect(use(token)).toBe(date)
   })
 
   test('token with factory', async () => {
     const date = new Date()
-    const token = new Token('date.token')
+    const token = new Alias('date.token')
 
-    await add({ref: token, use: () => date})
+    provide({ref: token, use: () => date})
+
+    await load()
 
     expect(use(token)).toBe(date)
   })
 
   test('abstract with implementation', async () => {
-    await add({ref: Abstract, use: Implementation})
+    provide({ref: Abstract, use: Implementation})
+
+    await load()
 
     expect(use(Abstract)).toBeInstanceOf(Implementation)
   })
 
   test('class with dependency', async () => {
-    await load(set({ref: A}, {ref: B, dep: [A]}))
+    provides({ref: A}, {ref: B, dep: [A]})
+
+    await load()
 
     const b = use(B)
 
@@ -73,9 +81,10 @@ describe('di', () => {
     expect(b.a).toBeInstanceOf(A)
   })
 
-  test('class with dependency factory', () => {
-    add({ref: A})
-    add({ref: B, use: (a: A) => new B(a), dep: [A]})
+  test('class with dependency factory', async () => {
+    provides({ref: A}, {ref: B, use: (a: A) => new B(a), dep: [A]})
+
+    await load()
 
     const b = use(B)
 
@@ -88,26 +97,26 @@ describe('di', () => {
 
     class Age {
       constructor(value: number) {
-        // 
+        //
       }
     }
 
-    await load(
-      set(
-        {
-          ref: tokenFactory,
-          use: useFactory,
+    provides(
+      {
+        ref: tokenFactory,
+        use: useFactory,
+      },
+      {
+        ref: Age,
+        use(value: number) {
+          fnFactory(value)
+          return new Age(value)
         },
-        {
-          ref: Age,
-          use(value: number) {
-            fnFactory(value)
-            return new Age(value)
-          },
-          dep: [tokenFactory],
-        }
-      )
+        dep: [tokenFactory],
+      }
     )
+
+    await load()
 
     const b = use(Age)
 
